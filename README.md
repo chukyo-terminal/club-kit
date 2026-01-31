@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Club Kit (クラブキット) 🧰
 
-## Getting Started
+**必要な道具を選んで作る、大学生のためのサークル運営プラットフォーム**
 
-First, run the development server:
+Club Kitは、「サークル運営に必要なツールは、サークルごとに異なる」という考えに基づき開発されている、モジュール選択型の運営補助アプリケーションです。Kintoneのように、自分たちのサークル活動に必要な機能（モジュール）だけを選んで追加し、最適化されたダッシュボードを構築することができます。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 💡 コンセプト
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+テニスサークルには「コート予約管理」が必要ですが、「高額機材管理」は不要かもしれません。軽音サークルにはその逆が必要です。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+既存の万能型ツールは機能過多になりがちで、チャットツール（LINE/Discord）だけでは情報が流れてしまいます。Club Kitは、サークルごとの「文化」や「運営スタイル」に合わせて、必要な道具だけを道具箱（Kit）から選んでカスタマイズできる場を提供します。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✨ 主な特徴
 
-## Learn More
+* **モジュール選択型アーキテクチャ**: 必要な機能だけをインストール。使わない機能でUIが散らかることはありません。
+* **サークル特化の権限管理**: 代表、役職者、一般メンバーなど、サークル運営の実態に即したロールベースアクセス制御（RBAC）を提供します。
+* **モダンな技術スタック**: React (Vite) と Supabase を採用し、高速な動作と堅牢なセキュリティ（RLS）を実現しています。
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ 機能モジュール一覧
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+現在、MVP（Minimum Viable Product）として以下のコアモジュールの開発を進めています。
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### MVP (Sランク機能)
+* **📢 お知らせ板**: 運営からメンバーへの重要連絡。既読確認機能付きで「見てなかった」を防ぎます。
+* **📅 活動カレンダー**: 練習やイベントの日程管理。出欠確認機能と統合されています。
+* **👥 メンバー名簿**: プロフィール管理と、サークル内での役割管理。
 
-## Deploy on Vercel
+### 今後追加予定のモジュール (構想中)
+* 💰 会計・部費管理
+* 📦 備品管理
+* 💬 事務連絡用チャット（スレッド式掲示板）
+* etc...
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🏗️ 技術スタック (Tech Stack)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+開発体験とパフォーマンスを重視したモダンな構成を採用しています。
+
+| Category | Technology |
+| :--- | :--- |
+| **Frontend** | Next.js |
+| **Backend (BaaS)** | Supabase (Auth, Database, Realtime, Storage) |
+| **Language** | TypeScript |
+| **Styling** | Tailwind CSS (予定) |
+| **Lint/Format** | Biome |
+| **Version Control** | GitHub Flow |
+
+---
+*Develop by Terminal*
