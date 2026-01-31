@@ -44,5 +44,21 @@ Club Kitは、「サークル運営に必要なツールは、サークルごと
 | **Lint/Format** | Biome |
 | **Version Control** | GitHub Flow |
 
+## Scripts
+
+| コマンド | 説明 |
+|----------|------|
+| `bun run dev` | Next.js 開発サーバー起動 |
+| `bun run build` / `bun run start` | ビルド・本番起動 |
+| `bun run supabase:init` | Supabase プロジェクト初期化 |
+| `bun run supabase:start` / `bun run supabase:stop` | ローカル Supabase 起動・停止 |
+| `bun run db:generate` | Drizzle マイグレーション SQL 生成 |
+| `bun run db:push` | スキーマを DB に反映 |
+| `bun run db:migrate` | マイグレーション実行 |
+| `bun run db:studio` | Drizzle Studio 起動 |
+| `bun run lint` / `bun run lint:fix` | Lint チェック・自動修正 |
+| `bun run format` | フォーマット適用 |
+| `bun run typecheck` | 型チェック |
+
 ---
 *Develop by Terminal*

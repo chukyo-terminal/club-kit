@@ -6,6 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "supabase:init": "supabase init",
+    "supabase:start": "supabase start",
+    "supabase:stop": "supabase stop",
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
     "lint": "biome check",
     "lint:fix": "biome check --write --unsafe",
     "format": "biome format --write",
@@ -13,7 +20,10 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "dotenv": "^17.2.3",
+    "drizzle-orm": "^0.45.1",
     "next": "16.1.6",
+    "postgres": "^3.4.8",
     "react": "19.2.3",
     "react-dom": "19.2.3"
   },
@@ -24,9 +34,12 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
+    "drizzle-kit": "^0.31.8",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
+    "supabase": "^2.74.5",
     "tailwindcss": "^4",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   },
   "lint-staged": {
