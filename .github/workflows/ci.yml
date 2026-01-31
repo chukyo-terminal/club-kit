@@ -5,7 +5,7 @@ on:
   push:
     # 全ブランチで push 時に実行
   pull_request:
-    branches: [main, master]
+    branches: [main, master, dev]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
