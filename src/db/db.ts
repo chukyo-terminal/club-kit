@@ -2,10 +2,16 @@ import "dotenv/config";
 
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
+import { requireEnv } from "@/lib/env";
+import * as schema from "./schema";
 
-const connectionString = process.env.DATABASE_URL!;
+const connectionString = requireEnv("DATABASE_URL");
 
-// 「トランザクション」プールモードではプリフェッチはサポートされていないため、プリフェッチを無効にします。
-export const client = postgres(connectionString, { prepare: false });
+// Supabase（transaction pool mode）対策
+export const client = postgres(connectionString, {
+  prepare: false,
+});
 
-export const db = drizzle(client);
+export const db = drizzle(client, {
+  schema,
+});
