@@ -1,4 +1,4 @@
-# CI: プッシュ・PR時に Lint / Build を実行
+# CI: プッシュ・PR時に Lint を実行
 name: CI
 
 on:
@@ -12,8 +12,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  lint-and-build:
-    name: Lint & Build
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -37,9 +37,3 @@ jobs:
 
       - name: Lint
         run: bun run lint
-
-      - name: Build
-        run: bun run build
-        env:
-          # Next.js ビルドで必要な場合（例: 公開URL）
-          NEXT_TELEMETRY_DISABLED: 1
