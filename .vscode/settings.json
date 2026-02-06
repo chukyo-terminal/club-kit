@@ -6,5 +6,6 @@
   // JSONファイルのバリデーションを無効化（Biomeが処理するため）
   "json.validate.enable": true,
   // JSONCファイルのバリデーション設定
-  "jsonc.validate.enable": true
+  "jsonc.validate.enable": true,
+  "postman.settings.dotenv-detection-notification-visibility": false
 }
