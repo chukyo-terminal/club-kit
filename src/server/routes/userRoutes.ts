@@ -8,12 +8,21 @@ const errorSchema = z.object({
 export const getUsersRoute = createRoute({
   method: "get",
   path: "/",
-  summary: "ユーザー一覧取得",
-  description: "登録されているユーザーの一覧を返します。0件の場合は空配列を返します。",
+  summary: "プロフィール取得（自分）",
+  description:
+    "認証済みユーザー自身のプロフィールを返します。RLS により自分のレコードのみ返ります（0件の場合は空配列）。",
   tags: ["users"],
   responses: {
+    401: {
+      description: "認証されていません",
+      content: {
+        "application/json": {
+          schema: errorSchema,
+        },
+      },
+    },
     200: {
-      description: "ユーザー一覧を取得しました",
+      description: "プロフィールを取得しました",
       content: {
         "application/json": {
           schema: usersSchema,
@@ -21,7 +30,7 @@ export const getUsersRoute = createRoute({
       },
     },
     500: {
-      description: "ユーザー一覧の取得に失敗しました",
+      description: "プロフィールの取得に失敗しました",
       content: {
         "application/json": {
           schema: errorSchema,
@@ -34,18 +43,27 @@ export const getUsersRoute = createRoute({
 export const getUserRoute = createRoute({
   method: "get",
   path: "/{id}",
-  summary: "ユーザー取得",
-  description: "指定したユーザーIDのユーザーを返します。存在しない場合は 404 を返します。",
+  summary: "プロフィール取得（user_id 指定）",
+  description:
+    "指定した user_id のプロフィールを返します。RLS により自分以外は取得できません（自分以外の場合は 404 を返します）。",
   tags: ["users"],
   request: {
     params: z.object({
-      id: z.coerce.number().int().positive().openapi({
-        example: 1,
-        description: "ユーザーID",
+      id: z.string().uuid().openapi({
+        example: "00000000-0000-0000-0000-000000000000",
+        description: "auth.users.id",
       }),
     }),
   },
   responses: {
+    401: {
+      description: "認証されていません",
+      content: {
+        "application/json": {
+          schema: errorSchema,
+        },
+      },
+    },
     200: {
       description: "ユーザーを取得しました",
       content: {

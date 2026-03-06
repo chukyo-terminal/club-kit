@@ -8,7 +8,7 @@ import { getUserRoute, getUsersRoute } from "./routes/userRoutes";
 
 export const app = new OpenAPIHono().basePath("/api");
 
-const userApp = new OpenAPIHono()
+const userApp = (new OpenAPIHono() as any)
   .use("*", honoAuthMiddleware)
   .openapi(getUsersRoute, getUsersHandler)
   .openapi(getUserRoute, getUserHandler);
@@ -18,7 +18,7 @@ app.route("/users", userApp);
 app
   .doc("/specification", {
     openapi: "3.0.0",
-    info: { title: "Honote API", version: "1.0.0" },
+    info: { title: "CLUB KIT API", version: "1.0.0" },
   })
   .get("/doc", swaggerUI({ url: "/api/specification" }));
 

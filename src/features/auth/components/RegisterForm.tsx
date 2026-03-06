@@ -32,10 +32,11 @@ export function RegisterForm() {
     }
 
     if (data.session) {
-      router.push("/circles");
-    } else {
-      router.push("/login");
+      router.push("/onboarding/profile");
+      return;
     }
+
+    router.push("/login");
   };
 
   return (
