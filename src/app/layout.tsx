@@ -1,20 +1,12 @@
-import "./globals.css";
+// src/app/layout.tsx
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import "./globals.css";
+// 先ほど作成したコンポーネントを読み込む
+import Sidebar from "../app/Sidebar";
 
 export const metadata: Metadata = {
   title: "Club Kit",
-  description: "Club Kit",
+  description: "Club Kit Application",
 };
 
 export default function RootLayout({
@@ -24,7 +16,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+      {/* h-screenで画面の高さを固定し、flexで横並びにする */}
+      <body className="flex h-screen bg-gray-50 text-gray-900">
+        {/* 左側のサイドバー */}
+        <Sidebar />
+
+        {/* 右側のメインコンテンツ（flex-1で残りの幅を埋める） */}
+        <main className="flex-1 overflow-y-auto p-8">{children}</main>
+      </body>
     </html>
   );
 }

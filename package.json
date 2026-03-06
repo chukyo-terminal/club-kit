@@ -40,7 +40,7 @@
     "drizzle-kit": "^0.31.8",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
-    "supabase": "^2.74.5",
+    "supabase": "^2.76.17",
     "tailwindcss": "^4",
     "tsx": "^4.21.0",
     "typescript": "^5"
